@@ -2,9 +2,9 @@
 import itertools
 
 with open('part1_input.txt') as f:
-    numbers = {int(i.strip()) for i in f.readlines()}
+    numbers = [int(i.strip()) for i in f.readlines()]
 
-for x, y in itertools.permutations(numbers, 2):
+for x, y in itertools.combinations(numbers, 2):
     if x + y == 2020:
         print(f'{x} + {y} == 2020')
         print(f'{x} * {y} == {x * y}')
