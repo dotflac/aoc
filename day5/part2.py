@@ -7,10 +7,17 @@ def decode_boarding_pass(s):
     return row, col, (row * 8 + col)
 
 if __name__ == '__main__':
-    ids = []
+    id_nums = []
+
     with open('input.txt') as f:
         for line in f:
             line = line.rstrip()
             *_, id_num = decode_boarding_pass(line)
-            ids.append(id_num)
-    print(max(ids))
+            id_nums.append(id_num)
+
+    for i in range(max(id_nums)):
+        if i in id_nums:
+            continue
+        if (i+1) in id_nums and (i-1) in id_nums:
+            print(i)
+            break
