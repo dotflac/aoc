@@ -1,18 +1,15 @@
 import re
 
 def run_program(program):
-    finished = False
     accumulator = 0
     instruction_pointer = 0
     executed_instructions = []
-    while not finished:
+    while instruction_pointer < len(program):
         if instruction_pointer in executed_instructions:
             raise Exception(f'infinite loop\n'
                             f'{instruction_pointer} : {program[instruction_pointer]}\n'
                             f'accumulator: {accumulator}\n')
         executed_instructions.append(instruction_pointer)
-        if instruction_pointer == len(program) - 1:
-            finished = True
         ins, v = program[instruction_pointer].split()
         if ins == 'jmp':
             instruction_pointer += int(v)
