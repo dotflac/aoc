@@ -4,7 +4,7 @@ import sys
 PREAMBLE = 25
 
 with open('input.txt') as f:
-    data = list(map(int, f.read().strip().split('\n')))
+    data = list(map(int, f.readlines()))
 
 for index, num in enumerate(data):
     if index < PREAMBLE:
